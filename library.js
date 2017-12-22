@@ -9,7 +9,7 @@
     }
 
 
-    function createRandomObject(){
+    function createRandomProduct(){
       const typeArray = ["Electronics", "Book", "clothing", "food"];
       const price = (Math.random()*500).toFixed(2);
       const type = typeArray[Math.floor(Math.random()*4)];
@@ -20,10 +20,10 @@
       }
     }
 
-    function createRandomCatalognum(){
+    function createRandomCatalog(num){
       const catalog = [];
       for(let i = 0; i < num; i++){
-        const obj = createRandomObject();
+        const obj = createRandomProduct();
         catalog.push({
           id: i,
           price: obj.price,
