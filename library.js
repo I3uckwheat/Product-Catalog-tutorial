@@ -92,6 +92,31 @@ import { setTimeout } from "timers";
     return promise;
   }
 
+  function searchProductsByPrice(price, difference){
+    const promise = new Promise((resolve, reject) => {
+      let i = 0;
+      const priceArray = [];
+      if(!isFinite(price)){
+        reject("Invalid Price: " + price)
+      } else {
+        setTimeout(() => {
+          while (i < catalog.length){
+            if (Math.abs(catalog[i].price - price) < difference){
+              priceArray.push({
+                id: catalog[i].id,
+                price: catalog[i].price,
+                type: catalog[i].type
+              });
+            }
+            i++;
+          }
+          resolve(priceArray);
+        }, 1000);
+      }
+    });
+    return promise;
+  }
+
   if(typeof(window.api) === 'undefined'){
   window.api = myLibrary();
   }
