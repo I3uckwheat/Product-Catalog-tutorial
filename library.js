@@ -1,3 +1,5 @@
+import { setTimeout } from "timers";
+
 (function(window){
   function myLibrary(){
 
@@ -62,6 +64,32 @@
         }
       })
     });
+  }
+
+  function searchProductByType(type){
+    const promise = new Promise((resolve, reject) => {
+      let i = 0;
+      const typeArray = [];
+      const possibleTypes = ['Electronics', 'Book', 'Clothing', 'Food'];
+      if(!possibleTypes.includes(type)){
+        reject("Invalid Type: " + type)
+      } else {
+        setTimeout(() => {
+          while(i < catalog.length){
+            if(catalog[i].type == type){
+              typeArray.push({
+                id: catalog[i].id,
+                price: catalog[i].price,
+                type: catalog[i].type
+              });
+            }
+            i++
+          }
+          resolve(typeArray);
+        }, 1000);
+      }
+    });
+    return promise;
   }
 
   if(typeof(window.api) === 'undefined'){
