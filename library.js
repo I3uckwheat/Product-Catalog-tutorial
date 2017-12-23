@@ -1,6 +1,8 @@
 (function(window){
   function myLibrary(){
 
+    const catalog = createRandomCatalog(100);
+
     return {
       searchProductsById,
       searchProductsByPrice,
@@ -33,6 +35,15 @@
       return catalog;
     }
 
+    function searchAllProducts(){
+      const promise = new Promise((resolve, reject) => {
+
+        setTimeout(() => {
+          resolve(catalog);
+        }, 1000)
+      });
+    }
+    return promise;
   }
 
   if(typeof(window.api) === 'undefined'){
