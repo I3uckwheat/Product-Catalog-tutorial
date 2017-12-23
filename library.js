@@ -48,9 +48,10 @@
 
   function searchProductsById(id){
     const promise = new Promise((resolve, reject) => {
-      let i = 0;
+      // let i = 0;
       setTimeout(() => {
-        while(i<catalog.length){
+        // while(i<catalog.length){
+        for(let i = 0; i < catalog.length; i++){
           if(catalog[i].id == id){
             resolve({
               id:id,
@@ -58,7 +59,7 @@
               type: catalog[i].type
             });
           }
-          i++
+          // i++
         }
       })
     });
