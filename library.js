@@ -46,6 +46,24 @@
     return promise;
   }
 
+  function searchProductsById(id){
+    const promise = new Promise((resolve, reject) => {
+      let i = 0;
+      setTimeout(() => {
+        while(i<catalog.length){
+          if(catalog[i].id == id){
+            resolve({
+              id:id,
+              price: catalog[i].price,
+              type: catalog[i].type
+            });
+          }
+          i++
+        }
+      })
+    });
+  }
+
   if(typeof(window.api) === 'undefined'){
   window.api = myLibrary();
   }
