@@ -1,3 +1,5 @@
+api.searchAllProducts().then(value => updateTable('allTable', value));
+
 function createTableHeader(tableId){
   const tableHeaderRow = document.createElement('TR');
   const th1 = document.createElement('TH');
