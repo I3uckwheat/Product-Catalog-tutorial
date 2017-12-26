@@ -51,3 +51,18 @@ function updateExaminedText(product){
   outputString += "<br> Type: " + product.type;
   document.getElementById("productText").innerHTML = outputString;
 }
+
+function getIntersection(arrA, arrB, serchedId){
+  const samePrice = arrA;
+  const sameType = arrB;
+  const similarArray = [];
+
+  samePrice.forEach(obj1 => {
+    sameType.forEach(obj2 => {
+      if(oj1.id == obj2.id && obj1.id != searchedId){
+        similarArray.push(obj1);
+      }
+    });
+  });
+  return similarArray;
+}
