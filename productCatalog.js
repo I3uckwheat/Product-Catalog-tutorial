@@ -21,7 +21,7 @@ function updateTable(tableId, productArray){
   const tableBody = document.getElementById(tableId);
   tableBody.innerHTML = "";
 
-  createTableheader(tableId);
+  createTableHeader(tableId);
 
   for (i = 0; i < productArray.length; i++) {
     const tr = document.createElement('TR');
