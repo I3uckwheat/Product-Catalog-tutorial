@@ -1,5 +1,9 @@
 api.searchAllProducts().then(value => updateTable('allTable', value));
 
+document.getElementById("inputButton").addEventListener('click', () => {
+  processSearch(document.getElementById('input').value);
+})
+
 function createTableHeader(tableId){
   const tableHeaderRow = document.createElement('TR');
   const th1 = document.createElement('TH');
@@ -31,7 +35,7 @@ function updateTable(tableId, productArray){
     const td4 = document.createElement('button');
 
     td4.addEventListener('click',function(){
-
+      processSearch(this.parentNode.firstChild.innerHTML);
     });
     td1.appendChild(document.createTextNode(productArray[i].id));
     td2.appendChild(document.createTextNode(productArray[i].type));
@@ -52,14 +56,14 @@ function updateExaminedText(product){
   document.getElementById("productText").innerHTML = outputString;
 }
 
-function getIntersection(arrA, arrB, serchedId){
+function getIntersection(arrA, arrB, searchedId){
   const samePrice = arrA;
   const sameType = arrB;
   const similarArray = [];
 
   samePrice.forEach(obj1 => {
     sameType.forEach(obj2 => {
-      if(oj1.id == obj2.id && obj1.id != searchedId){
+      if(obj1.id == obj2.id && obj1.id != searchedId){
         similarArray.push(obj1);
       }
     });
