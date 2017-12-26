@@ -42,5 +42,12 @@ function updateTable(tableId, productArray){
     tr.appendChild(td3);
     tr.appendChild(td4);
     tableBody.appendChild(tr);
+  }
 }
+
+function updateExaminedText(product){
+  let outputString = "Product Id: " + product.id;
+  outputString += "<br> Price: " + product.price;
+  outputString += "<br> Type: " + product.type;
+  document.getElementById("productText").innerHTML = outputString;
 }
