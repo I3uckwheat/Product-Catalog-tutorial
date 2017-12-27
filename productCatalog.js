@@ -2,6 +2,14 @@ api.searchAllProducts().then(value => updateTable('allTable', value));
 
 document.getElementById("inputButton").addEventListener('click', () => {
   processSearch(document.getElementById('input').value);
+});
+
+document.getElementById("typeInputButton").addEventListener('click', () => {
+  searchByType(document.getElementById('typeInput').value);
+});
+
+document.getElementById("priceInputButton").addEventListener('click', () => {
+  searchByPrice(document.getElementById('priceInput').value);
 })
 
 function createTableHeader(tableId){
@@ -81,4 +89,16 @@ function processSearch(searchId){
   }).catch(function(val){
       alert(val);
   });
+}
+
+function searchByType(type){
+  api.searchProductsByType(type).then(val => {
+    updateTable('similarTable', val);
+  }).catch(val => alert(val));
+}
+
+function searchByPrice(price){
+  api.searchProductsByPrice(price, 50).then(val => {
+    updateTable('similarTable', val);
+  }).catch(val => alert(val));
 }
